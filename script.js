@@ -80,19 +80,19 @@ if (contactForm && formMessage) {
   const subjectInput = document.getElementById("subject");
   const messageInput = document.getElementById("message");
   const formEndpoint = "https://formspree.io/f/mzdylbea";
-  const formFields = [nameInput, phoneInput, emailInput, subjectInput];
+  const fieldOrder = [nameInput, phoneInput, emailInput, subjectInput, messageInput];
 
-  formFields.forEach((field, index) => {
-    if (!field) return;
+  fieldOrder.forEach((field, index) => {
+    if (!field || field.tagName.toLowerCase() === "textarea") return;
 
     field.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") {
+      if (event.key === "Enter" || event.code === "Enter" || event.code === "NumpadEnter") {
         event.preventDefault();
-        const nextField = formFields[index + 1];
+        event.stopPropagation();
+
+        const nextField = fieldOrder[index + 1];
         if (nextField) {
           nextField.focus();
-        } else {
-          emailInput.focus();
         }
       }
     });
