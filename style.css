@@ -919,8 +919,8 @@ transform:translateY(0) scale(1);
 
 @media (max-width: 768px){
   .hero{
-    min-height: calc(100svh - 90px);
-    padding: 42px 18px 42px;
+    min-height: auto;
+    padding: 48px 18px 30px;
     justify-content: center;
   }
 
