@@ -375,12 +375,12 @@
       </div>
 
    <form class="contact-form" id="contact-form" action="https://formspree.io/f/mzdylbea" method="POST">
-     <input type="text" id="name" name="name" placeholder="Imię i nazwisko">
-     <input type="tel" id="phone" name="phone" placeholder="Telefon">
-     <input type="email" id="email" name="email" placeholder="Adres e-mail" required>
-     <input type="text" id="subject" name="subject" placeholder="Temat zapytania">
-     <textarea id="message" name="message" placeholder="Opisz zakres prac, rodzaj obiektu, termin i dodatkowe wymagania" required></textarea>
-     <button type="submit">Wyślij zapytanie</button>
+     <input type="text" id="name" name="name" placeholder="Imię i nazwisko" autocomplete="name" tabindex="1">
+     <input type="tel" id="phone" name="phone" placeholder="Telefon" autocomplete="tel" inputmode="tel" tabindex="2">
+     <input type="email" id="email" name="email" placeholder="Adres e-mail" required autocomplete="email" tabindex="3">
+     <input type="text" id="subject" name="subject" placeholder="Temat zapytania" autocomplete="off" tabindex="4">
+     <textarea id="message" name="message" placeholder="Opisz zakres prac, rodzaj obiektu, termin i dodatkowe wymagania" required tabindex="5"></textarea>
+     <button type="submit" tabindex="6">Wyślij zapytanie</button>
      <p class="form-message" id="form-message"></p>
 </form>
     </div>

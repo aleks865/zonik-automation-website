@@ -74,9 +74,29 @@ const contactForm = document.getElementById("contact-form");
 const formMessage = document.getElementById("form-message");
 
 if (contactForm && formMessage) {
+  const nameInput = document.getElementById("name");
+  const phoneInput = document.getElementById("phone");
   const emailInput = document.getElementById("email");
+  const subjectInput = document.getElementById("subject");
   const messageInput = document.getElementById("message");
   const formEndpoint = "https://formspree.io/f/mzdylbea";
+  const formFields = [nameInput, phoneInput, emailInput, subjectInput];
+
+  formFields.forEach((field, index) => {
+    if (!field) return;
+
+    field.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        const nextField = formFields[index + 1];
+        if (nextField) {
+          nextField.focus();
+        } else {
+          emailInput.focus();
+        }
+      }
+    });
+  });
 
   contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
