@@ -918,6 +918,34 @@ transform:translateY(0) scale(1);
 }
 
 @media (max-width: 768px){
+  .hero{
+    min-height: auto;
+    padding: 90px 18px 100px;
+    justify-content: flex-start;
+  }
+
+  .hero h1{
+    font-size: clamp(2rem, 8.5vw, 2.5rem);
+    line-height: 1.08;
+  }
+
+  .hero-description{
+    font-size: 16px;
+    margin-top: 18px;
+    max-width: 100%;
+  }
+
+  .hero-buttons{
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 22px;
+  }
+
+  .hero-button{
+    width: 100%;
+    min-width: auto;
+  }
+
   .contact-form button{
     width: 100%;
   }
