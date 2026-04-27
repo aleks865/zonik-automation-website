@@ -374,12 +374,12 @@
         </div>
       </div>
 
-   <form class="contact-form" id="contact-form">
-     <input type="text" id="name" placeholder="Imię i nazwisko">
-     <input type="tel" id="phone" placeholder="Telefon">
-     <input type="email" id="email" placeholder="Adres e-mail" required>
-     <input type="text" id="subject" placeholder="Temat zapytania">
-     <textarea id="message" placeholder="Opisz zakres prac, rodzaj obiektu, termin i dodatkowe wymagania" required></textarea>
+   <form class="contact-form" id="contact-form" action="https://formspree.io/f/mzdylbea" method="POST">
+     <input type="text" id="name" name="name" placeholder="Imię i nazwisko">
+     <input type="tel" id="phone" name="phone" placeholder="Telefon">
+     <input type="email" id="email" name="email" placeholder="Adres e-mail" required>
+     <input type="text" id="subject" name="subject" placeholder="Temat zapytania">
+     <textarea id="message" name="message" placeholder="Opisz zakres prac, rodzaj obiektu, termin i dodatkowe wymagania" required></textarea>
      <button type="submit">Wyślij zapytanie</button>
      <p class="form-message" id="form-message"></p>
 </form>
@@ -411,7 +411,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2026 Zonik Automation. :/ Wszelkie prawa zastrzeżone.</p>
+      <p>© 2026 Zonik Automation. Wszelkie prawa zastrzeżone.</p>
     </div>
   </footer>
 

@@ -76,8 +76,9 @@ const formMessage = document.getElementById("form-message");
 if (contactForm && formMessage) {
   const emailInput = document.getElementById("email");
   const messageInput = document.getElementById("message");
+  const formEndpoint = "https://formspree.io/f/mzdylbea";
 
-  contactForm.addEventListener("submit", (event) => {
+  contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     formMessage.textContent = "";
@@ -106,9 +107,31 @@ if (contactForm && formMessage) {
       return;
     }
 
+    const formData = new FormData(contactForm);
     formMessage.style.color = "#2563eb";
-    formMessage.textContent = "Dziękujemy za wiadomość. Formularz został poprawnie wypełniony.";
-    contactForm.reset();
+    formMessage.textContent = "Wysyłam wiadomość...";
+
+    try {
+      const response = await fetch(formEndpoint, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        formMessage.style.color = "#2563eb";
+        formMessage.textContent = "Dziękujemy za wiadomość. Formularz został poprawnie wysłany.";
+        contactForm.reset();
+      } else {
+        formMessage.style.color = "#dc2626";
+        formMessage.textContent = "Wystąpił błąd podczas wysyłania. Spróbuj ponownie później.";
+      }
+    } catch (error) {
+      formMessage.style.color = "#dc2626";
+      formMessage.textContent = "Nie udało się wysłać formularza. Sprawdź połączenie i spróbuj ponownie.";
+    }
   });
 }
 
