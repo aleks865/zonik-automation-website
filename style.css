@@ -388,6 +388,16 @@ nav a.active{
   transform:scale(1.04);
 }
 
+.swiper-slide img,
+.blog-card img,
+.portfolio-item img,
+.testimonial-card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
 .portfolio-content{
   padding:22px;
 }
@@ -896,9 +906,59 @@ transform:translateY(0) scale(1);
   .blog-slider{
     padding: 18px 10px 42px 10px;
   }
+
+  .contact-actions{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .footer-container{
+    padding: 60px 6%;
+  }
 }
 
 @media (max-width: 768px){
+  .contact-form button{
+    width: 100%;
+  }
+
+  .contact-form{
+    padding: 24px;
+  }
+
+  .contact-info,
+  .contact-form{
+    width: 100%;
+  }
+
+  .contact-actions{
+    gap: 12px;
+  }
+
+  .footer-container{
+    padding: 40px 20px;
+  }
+
+  .footer-container{
+    grid-template-columns: 1fr;
+  }
+
+  .footer-links{
+    gap: 15px;
+  }
+
+  .blog-card,
+  .testimonial-card,
+  .portfolio-item{
+    min-height: auto;
+  }
+
+  .portfolio-slider,
+  .testimonials-slider,
+  .blog-slider{
+    padding: 18px 10px 42px 10px;
+  }
+
   .header{
     padding: 20px;
   }
