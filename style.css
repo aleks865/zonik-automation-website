@@ -380,6 +380,8 @@ nav a.active{
   display:block;
   transition:transform 0.3s ease;
   cursor:pointer;
+  border-top-left-radius:18px;
+  border-top-right-radius:18px;
 }
 
 .portfolio-item img:hover{
@@ -818,7 +820,42 @@ transform:translateY(0) scale(1);
 }
 
 .swiper-pagination{
-  display:none !important;
+  display: block !important;
+  position: relative !important;
+  bottom: auto !important;
+  margin-top: 30px !important;
+  padding-top: 20px !important;
+  text-align: center;
+}
+
+/* Kropki dla portfolio i bloga - jasne kolory na ciemnym tle */
+.portfolio .swiper-pagination-bullet,
+.blog .swiper-pagination-bullet {
+  background-color: #ffffff !important;
+  opacity: 0.5;
+}
+
+.portfolio .swiper-pagination-bullet-active,
+.blog .swiper-pagination-bullet-active {
+  background-color: #ffffff !important;
+  opacity: 1;
+}
+
+/* Kropki dla testimonials - ciemne kolory na białym tle */
+.testimonials .swiper-pagination-bullet {
+  background-color: #0f1927 !important;
+  opacity: 0.3;
+}
+
+.testimonials .swiper-pagination-bullet-active {
+  background-color: #0f1927 !important;
+  opacity: 1;
+}
+
+.portfolio-slider,
+.blog-slider,
+.testimonials-slider {
+  padding-bottom: 50px !important;
 }
 
 /* RESPONSIVE */

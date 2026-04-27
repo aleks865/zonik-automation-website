@@ -127,6 +127,10 @@ const testimonialsSwiper = new Swiper(".testimonials-slider", {
   keyboard: {
     enabled: true,
   },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
   breakpoints: {
     0: {
       slidesPerView: 1,
@@ -151,6 +155,10 @@ const portfolioSwiper = new Swiper(".portfolio-slider", {
   },
   keyboard: {
     enabled: true,
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
   },
   breakpoints: {
     0: {
@@ -178,6 +186,10 @@ const blogSwiper = new Swiper(".blog-slider", {
   },
   keyboard: {
     enabled: true,
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
   },
   breakpoints: {
     0: {
