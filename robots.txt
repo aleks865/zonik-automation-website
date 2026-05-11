@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://zonikautomation.pl/sitemap.xml
