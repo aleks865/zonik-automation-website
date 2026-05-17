@@ -173,6 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '--gray-mid':   '#3a3a34',
         '--gray-light': '#c8c8bc',
         '--border':     'rgba(245,243,239,0.10)',
+        '--hero-tint':  '#1a0a07',
       }
     },
     {
@@ -187,6 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '--gray-mid':   '#2a2e42',
         '--gray-light': '#b8bdd4',
         '--border':     'rgba(200,210,255,0.10)',
+        '--hero-tint':  '#070d2a',
       }
     },
     {
@@ -201,6 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '--gray-mid':   '#1e3028',
         '--gray-light': '#b8d4bc',
         '--border':     'rgba(200,255,210,0.10)',
+        '--hero-tint':  '#071a0e',
       }
     },
     {
@@ -215,6 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '--gray-mid':   '#3a3020',
         '--gray-light': '#c8bca8',
         '--border':     'rgba(240,220,180,0.10)',
+        '--hero-tint':  '#1a1507',
       }
     },
     {
@@ -229,6 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '--gray-mid':   '#28253a',
         '--gray-light': '#bab8d0',
         '--border':     'rgba(200,195,255,0.10)',
+        '--hero-tint':  '#100820',
       }
     },
     {
@@ -243,6 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '--gray-mid':   '#333333',
         '--gray-light': '#bbbbbb',
         '--border':     'rgba(255,255,255,0.12)',
+        '--hero-tint':  '#111111',
       }
     },
   ];
