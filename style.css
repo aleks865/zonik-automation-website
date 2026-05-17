@@ -23,6 +23,7 @@
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --section-pad: clamp(80px, 10vw, 140px);
   --container:   min(1320px, 92vw);
+  --hero-tint:   #1a0a07;
 }
 
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -164,7 +165,7 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 
 .hero-bg {
   position: absolute; inset: 0; z-index: 0;
-  background: linear-gradient(135deg, #0d0d0d 0%, #1a0a07 50%, #080808 100%);
+  background: linear-gradient(135deg, #0d0d0d 0%, var(--hero-tint) 50%, #080808 100%);
 }
 .hero-bg-grid {
   position: absolute; inset: 0; z-index: 1;
@@ -864,7 +865,7 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 }
 .subpage-hero-bg {
   position: absolute; inset: 0;
-  background: linear-gradient(135deg, #0d0d0d 0%, #1a0a07 60%, #080808 100%);
+  background: linear-gradient(135deg, #0d0d0d 0%, var(--hero-tint) 60%, #080808 100%);
 }
 .subpage-hero-grid {
   position: absolute; inset: 0;
