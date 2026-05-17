@@ -1,5 +1,5 @@
 /* ============================================================
-   ZONIK AUTOMATION â Global Styles
+   ZONIK AUTOMATION — Global Styles
    Design: Dark industrial, Enerblock-inspired
    ============================================================ */
 
@@ -543,7 +543,7 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 .lightbox-close:hover { border-color: var(--accent); background: var(--accent); }
 
 /* ================================================================
-   WHY / WARTOĹCI
+   WHY / WARTOŚCI
    ================================================================ */
 .why {
   padding: var(--section-pad) clamp(20px, 4vw, 60px);
@@ -613,7 +613,7 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
   .tech-logos { grid-template-columns: repeat(3, 1fr); }
   .tech-logo:nth-child(4n) { border-right: 1px solid var(--border); }
   .tech-logo:nth-child(3n) { border-right: none; }
-  /* 14 items = 4 full rows of 3 + last row of 2 â last 2 items have no border-bottom */
+  /* 14 items = 4 full rows of 3 + last row of 2 → last 2 items have no border-bottom */
   .tech-logo:nth-last-child(-n+4) { border-bottom: 1px solid var(--border); }
   .tech-logo:nth-last-child(-n+2) { border-bottom: none; }
   /* Last item in incomplete row: no right border */
@@ -972,7 +972,7 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
   .about-values { grid-template-columns: 1fr; }
   .hero-stats { flex-direction: column; gap: 24px; }
 
-  /* Fix service items on mobile â single column, no number column */
+  /* Fix service items on mobile — single column, no number column */
   .service-item {
     grid-template-columns: 1fr !important;
     gap: 16px;
