@@ -159,4 +159,144 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
+  /* ---- THEME SWITCHER ---- */
+  const themes = [
+    {
+      name: 'Industrial Red',
+      swatch: '#e63312',
+      vars: {
+        '--black':      '#080808',
+        '--white':      '#f5f3ef',
+        '--accent':     '#e63312',
+        '--accent2':    '#ff6b4a',
+        '--gray':       '#9a9a8e',
+        '--gray-mid':   '#3a3a34',
+        '--gray-light': '#c8c8bc',
+        '--border':     'rgba(245,243,239,0.10)',
+      }
+    },
+    {
+      name: 'Electric Blue',
+      swatch: '#0066ff',
+      vars: {
+        '--black':      '#060810',
+        '--white':      '#eef2ff',
+        '--accent':     '#0066ff',
+        '--accent2':    '#3d8bff',
+        '--gray':       '#8a90a8',
+        '--gray-mid':   '#2a2e42',
+        '--gray-light': '#b8bdd4',
+        '--border':     'rgba(200,210,255,0.10)',
+      }
+    },
+    {
+      name: 'Neon Green',
+      swatch: '#00e676',
+      vars: {
+        '--black':      '#050805',
+        '--white':      '#edfff3',
+        '--accent':     '#00c853',
+        '--accent2':    '#00e676',
+        '--gray':       '#8aa890',
+        '--gray-mid':   '#1e3028',
+        '--gray-light': '#b8d4bc',
+        '--border':     'rgba(200,255,210,0.10)',
+      }
+    },
+    {
+      name: 'Gold Premium',
+      swatch: '#c9a84c',
+      vars: {
+        '--black':      '#090806',
+        '--white':      '#f8f4ec',
+        '--accent':     '#c9a84c',
+        '--accent2':    '#e8c56a',
+        '--gray':       '#9a9080',
+        '--gray-mid':   '#3a3020',
+        '--gray-light': '#c8bca8',
+        '--border':     'rgba(240,220,180,0.10)',
+      }
+    },
+    {
+      name: 'Purple Dark',
+      swatch: '#8b5cf6',
+      vars: {
+        '--black':      '#07060e',
+        '--white':      '#f0eeff',
+        '--accent':     '#8b5cf6',
+        '--accent2':    '#a78bfa',
+        '--gray':       '#8a88a0',
+        '--gray-mid':   '#28253a',
+        '--gray-light': '#bab8d0',
+        '--border':     'rgba(200,195,255,0.10)',
+      }
+    },
+    {
+      name: 'Monochrome',
+      swatch: '#ffffff',
+      vars: {
+        '--black':      '#050505',
+        '--white':      '#f0f0f0',
+        '--accent':     '#e8e8e8',
+        '--accent2':    '#ffffff',
+        '--gray':       '#888888',
+        '--gray-mid':   '#333333',
+        '--gray-light': '#bbbbbb',
+        '--border':     'rgba(255,255,255,0.12)',
+      }
+    },
+  ];
+
+  // Inject switcher HTML
+  const switcherHTML = `
+    <div id="theme-switcher">
+      <div id="theme-panel">
+        <h6>Motyw kolorów</h6>
+        ${themes.map((t, i) => `
+          <button class="theme-preset${i === 0 ? ' active' : ''}" data-index="${i}">
+            <span class="theme-swatch" style="background:${t.swatch}"></span>
+            ${t.name}
+          </button>
+        `).join('')}
+      </div>
+      <button id="theme-toggle-btn" aria-label="Zmień motyw">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  `;
+  document.body.insertAdjacentHTML('beforeend', switcherHTML);
+
+  const panel = document.getElementById('theme-panel');
+  const toggleBtn = document.getElementById('theme-toggle-btn');
+
+  function applyTheme(index) {
+    const t = themes[index];
+    const root = document.documentElement;
+    Object.entries(t.vars).forEach(([k, v]) => root.style.setProperty(k, v));
+    document.querySelectorAll('.theme-preset').forEach((btn, i) => {
+      btn.classList.toggle('active', i === index);
+    });
+    localStorage.setItem('za-theme', index);
+  }
+
+  toggleBtn.addEventListener('click', () => panel.classList.toggle('open'));
+  document.addEventListener('click', e => {
+    if (!e.target.closest('#theme-switcher')) panel.classList.remove('open');
+  });
+  document.querySelectorAll('.theme-preset').forEach(btn => {
+    btn.addEventListener('click', () => {
+      applyTheme(parseInt(btn.dataset.index));
+    });
+  });
+
+  // Restore saved theme
+  const saved = localStorage.getItem('za-theme');
+  if (saved !== null) applyTheme(parseInt(saved));
+
+  // Add theme presets to cursor hover
+  document.querySelectorAll('.theme-preset, #theme-toggle-btn').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor && cursor.classList.add('hovering'));
+    el.addEventListener('mouseleave', () => cursor && cursor.classList.remove('hovering'));
+  });
+
 });
