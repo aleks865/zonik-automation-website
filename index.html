@@ -56,11 +56,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 
-  <!-- Google Analytics (ładowane tylko po zgodzie) -->
+  <!-- Google Analytics (ładowane tylko po zgodzie) — Consent Mode v2 -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('consent','default',{'analytics_storage':'denied'});
+    gtag('consent','default',{
+      'analytics_storage': 'denied',
+      'ad_storage':        'denied',
+      'ad_user_data':      'denied',
+      'ad_personalization':'denied',
+      'wait_for_update':   500
+    });
 
     function loadGA(){
       var s = document.createElement('script');
@@ -74,7 +80,12 @@
     (function(){
       var c = localStorage.getItem('za_cookie_consent');
       if(c === 'accepted'){
-        gtag('consent','update',{'analytics_storage':'granted'});
+        gtag('consent','update',{
+          'analytics_storage': 'granted',
+          'ad_storage':        'granted',
+          'ad_user_data':      'granted',
+          'ad_personalization':'granted'
+        });
         loadGA();
       }
     })();
