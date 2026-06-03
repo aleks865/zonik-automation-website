@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zonik Automation — Smart Home, Automatyka, Elektryka | Warszawa</title>
+  <meta name="description" content="Zonik Automation — Smart Home, automatyka przemysłowa, projekty i schematy elektryczne, instalacje, ładowarki samochodowe. Warszawa i cała Polska.">
+  <meta name="keywords" content="smart home warszawa, automatyka przemysłowa, instalacje elektryczne, schematy elektryczne, KNX, Loxone, Home Assistant, ładowarki EV, zonik automation">
+  <meta name="author" content="Zonik Automation">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://zonikautomation.pl/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Zonik Automation — Smart Home i Automatyka">
+  <meta property="og:description" content="Nowoczesne systemy sterowania dla domu i przemysłu. Smart Home, automatyka, projekty elektryczne.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zonikautomation.pl">
+  <meta property="og:image" content="https://zonikautomation.pl/images/og.jpg">
+  <meta property="og:locale" content="pl_PL">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Zonik Automation — Smart Home i Automatyka">
+  <meta name="twitter:description" content="Nowoczesne systemy sterowania dla domu i przemysłu.">
+  <meta name="twitter:image" content="https://zonikautomation.pl/images/og.jpg">
+
+  <meta name="theme-color" content="#080808">
+  <link rel="icon" href="favicon.ico">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Electrician",
+    "name": "Zonik Automation",
+    "url": "https://zonikautomation.pl",
+    "description": "Smart Home, automatyka przemysłowa, elektryka, projekty i schematy elektryczne.",
+    "telephone": "+48511357787",
+    "email": "kontakt@zonikautomation.pl",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Warszawa",
+      "addressCountry": "PL"
+    },
+    "areaServed": ["Warszawa","Mazowieckie","Polska"],
+    "knowsAbout": ["Smart Home","KNX","Loxone","Home Assistant","Automatyka przemysłowa","Instalacje elektryczne","Schematy elektryczne","Ładowarki EV"],
+    "sameAs": [
+      "https://facebook.com/zonikautomation",
+      "https://instagram.com/zonikautomation"
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <!-- Google Analytics (ładowane tylko po zgodzie) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent','default',{'analytics_storage':'denied'});
+
+    function loadGA(){
+      var s = document.createElement('script');
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-9X9LQVGN8P';
+      s.async = true;
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config','G-9X9LQVGN8P');
+    }
+
+    (function(){
+      var c = localStorage.getItem('za_cookie_consent');
+      if(c === 'accepted'){
+        gtag('consent','update',{'analytics_storage':'granted'});
+        loadGA();
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor" aria-hidden="true"></div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" role="banner">
+    <a href="index.html" class="header-logo" aria-label="Zonik Automation — strona główna">
+      <div class="logo-mark">ZA</div>
+      <div class="logo-text">
+        <strong>Zonik Automation</strong>
+        <span>Smart Home &amp; Automatyka</span>
+      </div>
+    </a>
+
+    <nav class="header-nav" role="navigation" aria-label="Nawigacja główna">
+      <a href="#o-firmie">O firmie</a>
+      <a href="#uslugi">Usługi</a>
+      <a href="#realizacje">Realizacje</a>
+      <a href="#blog">Blog</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+
+    <a href="#kontakt" class="header-cta">Poproś o wycenę</a>
+
+    <button class="menu-toggle" aria-label="Otwórz menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav" aria-label="Menu mobilne">
+    <a href="#o-firmie">O firmie</a>
+    <a href="#uslugi">Usługi</a>
+    <a href="#realizacje">Realizacje</a>
+    <a href="#blog">Blog</a>
+    <a href="#kontakt">Kontakt</a>
+    <div class="mobile-nav-footer">
+      <p>+48 511 357 787</p>
+      <a href="mailto:kontakt@zonikautomation.pl">kontakt@zonikautomation.pl</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home" aria-labelledby="hero-heading">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-bg-grid" aria-hidden="true"></div>
+    <div class="hero-bg-glow" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <p class="hero-label">Zonik Automation — Warszawa</p>
+
+      <h1 id="hero-heading">
+        Inteligentne systemy<br>dla domu i przemysłu
+      </h1>
+
+      <div class="hero-bottom">
+        <p class="hero-desc">
+          Projektujemy, wdrażamy i dokumentujemy nowoczesne systemy Smart Home, automatyki przemysłowej i instalacji elektrycznych. Precyzja. Estetyka. Niezawodność.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#kontakt" class="btn btn-primary">Poproś o wycenę</a>
+          <a href="#realizacje" class="btn btn-secondary">Nasze realizacje</a>
+        </div>
+
+        <div class="hero-stats" aria-label="Statystyki firmy">
+          <div class="hero-stat">
+            <div class="hero-stat-num" data-count="120" data-suffix="+">120+</div>
+            <div class="hero-stat-label">Realizacji</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num" data-count="8" data-suffix="lat">8 lat</div>
+            <div class="hero-stat-label">Doświadczenia</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num" data-count="100" data-suffix="%">100%</div>
+            <div class="hero-stat-label">Zadowolonych klientów</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-indicator-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ===== TICKER ===== -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item">Smart Home <span class="dot">·</span></span>
+      <span class="ticker-item">KNX <span class="dot">·</span></span>
+      <span class="ticker-item">Loxone <span class="dot">·</span></span>
+      <span class="ticker-item">Home Assistant <span class="dot">·</span></span>
+      <span class="ticker-item">Matter <span class="dot">·</span></span>
+      <span class="ticker-item">Automatyka Przemysłowa <span class="dot">·</span></span>
+      <span class="ticker-item">Schematy Elektryczne <span class="dot">·</span></span>
+      <span class="ticker-item">Instalacje Elektryczne <span class="dot">·</span></span>
+      <span class="ticker-item">Ładowarki EV <span class="dot">·</span></span>
+      <span class="ticker-item">Pomiary Elektryczne <span class="dot">·</span></span>
+      <span class="ticker-item">Linie Produkcyjne <span class="dot">·</span></span>
+      <!-- duplicate for seamless loop -->
+      <span class="ticker-item">Smart Home <span class="dot">·</span></span>
+      <span class="ticker-item">KNX <span class="dot">·</span></span>
+      <span class="ticker-item">Loxone <span class="dot">·</span></span>
+      <span class="ticker-item">Home Assistant <span class="dot">·</span></span>
+      <span class="ticker-item">Matter <span class="dot">·</span></span>
+      <span class="ticker-item">Automatyka Przemysłowa <span class="dot">·</span></span>
+      <span class="ticker-item">Schematy Elektryczne <span class="dot">·</span></span>
+      <span class="ticker-item">Instalacje Elektryczne <span class="dot">·</span></span>
+      <span class="ticker-item">Ładowarki EV <span class="dot">·</span></span>
+      <span class="ticker-item">Pomiary Elektryczne <span class="dot">·</span></span>
+      <span class="ticker-item">Linie Produkcyjne <span class="dot">·</span></span>
+    </div>
+  </div>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="o-firmie" aria-labelledby="about-heading">
+    <div class="about-inner">
+      <div class="about-image-wrap reveal parallax-img">
+        <img
+          src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80&auto=format&fit=crop"
+          alt="Montaż rozdzielnicy elektrycznej — Zonik Automation"
+          loading="lazy"
+          width="800" height="1000"
+        >
+      </div>
+
+      <div class="about-text reveal reveal-delay-2">
+        <p class="section-tag">O firmie</p>
+        <h2 id="about-heading" data-split>Łączymy inżynierię z nowoczesną technologią</h2>
+        <p>Zonik Automation to firma specjalizująca się w projektowaniu i wdrażaniu inteligentnych systemów elektrycznych. Działamy na terenie Warszawy i całej Polski — od smart home po zaawansowane układy przemysłowe.</p>
+        <p>Każdy projekt realizujemy z pełną dokumentacją, estetyką wykonania i myślą o przyszłej rozbudowie. Klient dostaje system, który działa, wygląda dobrze i jest czytelny dla każdego elektryka.</p>
+
+        <div class="about-values">
+          <div class="about-value">
+            <div class="about-value-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            </div>
+            <h4>Precyzja</h4>
+            <p>Każdy kabel, schemat i konfiguracja — z myślą o detalach.</p>
+          </div>
+          <div class="about-value">
+            <div class="about-value-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h4>Estetyka</h4>
+            <p>Rozdzielnice i instalacje, które robią wrażenie nawet bez obudowy.</p>
+          </div>
+          <div class="about-value">
+            <div class="about-value-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h4>Niezawodność</h4>
+            <p>Systemy projektowane z rezerwą i gotowością na awarię.</p>
+          </div>
+          <div class="about-value">
+            <div class="about-value-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h4>Rozbudowalność</h4>
+            <p>Infrastruktura gotowa na jutro — nie tylko na dziś.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="services" id="uslugi" aria-labelledby="services-heading">
+    <div class="services-inner">
+      <div class="services-header">
+        <div>
+          <p class="section-tag">Usługi</p>
+          <h2 id="services-heading">Co robimy<br>najlepiej</h2>
+        </div>
+        <p style="max-width:380px; align-self:flex-end;">Kompleksowa oferta od projektu przez montaż aż po dokumentację. Jeden wykonawca, pełna odpowiedzialność.</p>
+      </div>
+
+      <div class="services-list" role="list">
+
+        <a href="smart-home.html" class="service-item reveal" role="listitem" aria-label="Smart Home — przejdź do strony usługi">
+          <span class="service-num">01</span>
+          <div class="service-body">
+            <h3>Smart Home</h3>
+            <p>Inteligentne sterowanie oświetleniem, ogrzewaniem, roletami, bramą i bezpieczeństwem. Jeden interfejs — pełna kontrola nad domem.</p>
+            <div class="service-tags">
+              <span class="service-tag">KNX</span>
+              <span class="service-tag">Loxone</span>
+              <span class="service-tag">Home Assistant</span>
+              <span class="service-tag">Matter</span>
+            </div>
+          </div>
+          <div class="service-arrow" aria-hidden="true">↗</div>
+        </a>
+
+        <a href="automatyka-przemyslowa.html" class="service-item reveal reveal-delay-1" role="listitem" aria-label="Automatyka przemysłowa — przejdź do strony usługi">
+          <span class="service-num">02</span>
+          <div class="service-body">
+            <h3>Automatyka przemysłowa</h3>
+            <p>Projektowanie i wdrażanie układów sterowania dla maszyn, linii produkcyjnych i instalacji technicznych. Prefabrykacja szaf sterowniczych.</p>
+            <div class="service-tags">
+              <span class="service-tag">PLC</span>
+              <span class="service-tag">Szafy sterownicze</span>
+              <span class="service-tag">Linie produkcyjne</span>
+            </div>
+          </div>
+          <div class="service-arrow" aria-hidden="true">↗</div>
+        </a>
+
+        <a href="instalacje-elektryczne.html" class="service-item reveal reveal-delay-2" role="listitem" aria-label="Instalacje elektryczne — przejdź do strony usługi">
+          <span class="service-num">03</span>
+          <div class="service-body">
+            <h3>Instalacje elektryczne</h3>
+            <p>Montaż instalacji w domach i lokalach. Pomiary elektryczne, przeglądy, odbiory. Ładowarki samochodowe AC i DC (wallboxy).</p>
+            <div class="service-tags">
+              <span class="service-tag">Pomiary</span>
+              <span class="service-tag">Wallboxy EV</span>
+              <span class="service-tag">Odbiory</span>
+            </div>
+          </div>
+          <div class="service-arrow" aria-hidden="true">↗</div>
+        </a>
+
+        <a href="schematy-elektryczne.html" class="service-item reveal reveal-delay-3" role="listitem" aria-label="Schematy elektryczne — przejdź do strony usługi">
+          <span class="service-num">04</span>
+          <div class="service-body">
+            <h3>Schematy elektryczne</h3>
+            <p>Czytelna dokumentacja techniczna: schematy rozdzielnic, projekty instalacji, schematy systemów Smart Home. CAD i cyfrowa archiwizacja.</p>
+            <div class="service-tags">
+              <span class="service-tag">CAD</span>
+              <span class="service-tag">Dokumentacja</span>
+              <span class="service-tag">Projekty wykonawcze</span>
+            </div>
+          </div>
+          <div class="service-arrow" aria-hidden="true">↗</div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESS ===== -->
+  <section class="process" aria-labelledby="process-heading">
+    <div class="process-inner">
+      <div class="process-header reveal">
+        <p class="section-tag">Jak działamy</p>
+        <h2 id="process-heading">Od pomysłu<br>do gotowego systemu</h2>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="process-step-num">01</div>
+          <h4>Konsultacja</h4>
+          <p>Rozmowa o potrzebach, obiekcie i budżecie. Ustalamy zakres i dobieramy technologię.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-1">
+          <div class="process-step-num">02</div>
+          <h4>Projekt</h4>
+          <p>Schematy, plan podziału obwodów, dobór urządzeń. Wszystko zatwierdzone przed montażem.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="process-step-num">03</div>
+          <h4>Montaż</h4>
+          <p>Realizacja zgodna z projektem. Estetyczny montaż, oznakowane przewody, porządek na budowie.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="process-step-num">04</div>
+          <h4>Konfiguracja i odbiór</h4>
+          <p>Uruchomienie systemu, konfiguracja, szkolenie. Pełna dokumentacja powykonawcza.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PORTFOLIO ===== -->
+  <section class="portfolio" id="realizacje" aria-labelledby="portfolio-heading">
+    <div class="portfolio-inner">
+      <div class="portfolio-header">
+        <div>
+          <p class="section-tag">Realizacje</p>
+          <h2 id="portfolio-heading">Wybrane<br>projekty</h2>
+        </div>
+        <a href="#kontakt" class="btn btn-secondary">Porozmawiaj o projekcie</a>
+      </div>
+
+      <div class="portfolio-grid reveal">
+        <div class="portfolio-card" onclick="openLightbox(this.querySelector('img'))">
+          <img
+            src="images/IMG_1490.jpeg"
+            alt="Szafa sterownicza PLC Siemens S7-1200 — Zonik Automation" loading="lazy" width="900" height="1125">
+          <div class="portfolio-card-overlay"></div>
+          <div class="portfolio-card-info">
+            <p class="portfolio-card-num">P — 001</p>
+            <p class="portfolio-card-title">Szafa sterownicza PLC, Siemens S7-1200</p>
+          </div>
+        </div>
+
+        <div class="portfolio-card" onclick="openLightbox(this.querySelector('img'))">
+          <img
+            src="images/IMG_4637.jpeg"
+            alt="Rozdzielnica automatyki przemysłowej — Zonik Automation" loading="lazy" width="900" height="1125">
+          <div class="portfolio-card-overlay"></div>
+          <div class="portfolio-card-info">
+            <p class="portfolio-card-num">P — 002</p>
+            <p class="portfolio-card-title">Rozdzielnica automatyki, linia produkcyjna</p>
+          </div>
+        </div>
+
+        <div class="portfolio-card" onclick="openLightbox(this.querySelector('img'))">
+          <img
+            src="images/IMG_6304.jpeg"
+            alt="Panel KNX dotykowy — sterowanie Smart Home — Zonik Automation" loading="lazy" width="900" height="1125">
+          <div class="portfolio-card-overlay"></div>
+          <div class="portfolio-card-info">
+            <p class="portfolio-card-num">P — 003</p>
+            <p class="portfolio-card-title">Panel KNX — sterowanie Smart Home</p>
+          </div>
+        </div>
+
+        <div class="portfolio-card" onclick="openLightbox(this.querySelector('img'))">
+          <img
+            src="images/IMG_6469.jpeg"
+            alt="Szafa Smart Home KNX, rozdzielnica — Zonik Automation" loading="lazy" width="900" height="1125">
+          <div class="portfolio-card-overlay"></div>
+          <div class="portfolio-card-info">
+            <p class="portfolio-card-num">P — 004</p>
+            <p class="portfolio-card-title">Szafa Smart Home, instalacja KNX</p>
+          </div>
+        </div>
+
+        <div class="portfolio-card" onclick="openLightbox(this.querySelector('img'))">
+          <img
+            src="images/IMG_1238.jpeg"
+            alt="Szafa sterownicza z falownikami i automatyką — Zonik Automation" loading="lazy" width="900" height="1200">
+          <div class="portfolio-card-overlay"></div>
+          <div class="portfolio-card-info">
+            <p class="portfolio-card-num">P — 005</p>
+            <p class="portfolio-card-title">Szafa sterownicza loxone/knx, instalacja smart home</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Powiększone zdjęcie">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Zamknij">&times;</button>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <!-- ===== WHY ===== -->
+  <section class="why" aria-labelledby="why-heading">
+    <div class="why-inner">
+      <div class="why-header reveal">
+        <p class="section-tag">Dlaczego warto</p>
+        <h2 id="why-heading">System gwarancji,<br>które mają znaczenie</h2>
+      </div>
+      <div class="why-grid stagger-children">
+        <div class="why-card reveal">
+          <div class="why-icon icon-svg" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+          <h4>Pełna dokumentacja</h4>
+          <p>Każda realizacja kończy się kompletną dokumentacją powykonawczą. Schematy, oznaczenia, konfiguracja — wszystko archiwizujemy.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon icon-svg" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <h4>Bezpieczeństwo instalacji</h4>
+          <p>Montaż zgodny z normami PN i IEC. Dobór urządzeń z myślą o ochronie przeciwporażeniowej i przepięciowej.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon icon-svg" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 20h.01M7 20v-4"/><path d="M12 20V10"/><path d="M17 20V4"/><path d="M22 20h.01"/></svg></div>
+          <h4>Indywidualny projekt</h4>
+          <p>Nie ma dwóch takich samych realizacji. Każdy system projektujemy od podstaw pod konkretny obiekt i potrzeby klienta.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-3">
+          <div class="why-icon icon-svg" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+          <h4>Gotowość na rozbudowę</h4>
+          <p>Rezerwa w rozdzielnicy, wolne kanały, przemyślana architektura — system gotowy na jutro, nie tylko na dziś.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon icon-svg" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+          <h4>Intuicyjna obsługa</h4>
+          <p>Interfejsy i automatyzacje tworzone z myślą o codziennym użyciu — przez każdego domownika, nie tylko właściciela.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon icon-svg" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+          <h4>Serwis i wsparcie</h4>
+          <p>Dostępność po zakończeniu projektu. Zdalna diagnostyka, aktualizacje i szybka reakcja w razie problemów.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TECH / MARKI ===== -->
+  <section class="tech" aria-labelledby="tech-heading">
+    <div class="tech-inner">
+      <div class="tech-header reveal">
+        <p class="section-tag">Technologie</p>
+        <h2 id="tech-heading" style="font-size:clamp(1.5rem,3vw,2.5rem)">Pracujemy z najlepszymi platformami</h2>
+      </div>
+      <div class="tech-logos" role="list">
+        <div class="tech-logo" role="listitem">KNX</div>
+        <div class="tech-logo" role="listitem">Loxone</div>
+        <div class="tech-logo" role="listitem">Home Assistant</div>
+        <div class="tech-logo" role="listitem">Matter / Thread</div>
+        <div class="tech-logo" role="listitem">Siemens</div>
+        <div class="tech-logo" role="listitem">ABB</div>
+        <div class="tech-logo" role="listitem">Schneider</div>
+        <div class="tech-logo" role="listitem">Hager</div>
+        <div class="tech-logo" role="listitem">Eaton</div>
+        <div class="tech-logo" role="listitem">Jung</div>
+        <div class="tech-logo" role="listitem">GVS</div>
+        <div class="tech-logo" role="listitem">Allen Bradley</div>
+        <div class="tech-logo" role="listitem">Rittal</div>
+        <div class="tech-logo" role="listitem">Aplisens</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials" aria-labelledby="testimonials-heading">
+    <div class="testimonials-inner">
+      <div class="testimonials-header reveal">
+        <p class="section-tag">Opinie</p>
+        <h2 id="testimonials-heading">Klienci<br>o współpracy</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div>
+            <div class="testimonial-stars" aria-label="5 gwiazdek">★ ★ ★ ★ ★</div>
+            <p class="testimonial-quote">"Pełen profesjonalizm, bardzo dobry kontakt i estetyczne wykonanie instalacji. System Smart Home działa bez zarzutu od dnia montażu. Zdecydowanie polecam."</p>
+          </div>
+          <div class="testimonial-author">
+            <p class="testimonial-name">Klient indywidualny</p>
+            <p class="testimonial-role">Dom jednorodzinny, Warszawa</p>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div>
+            <div class="testimonial-stars" aria-label="5 gwiazdek">★ ★ ★ ★ ★</div>
+            <p class="testimonial-quote">"Świetnie przygotowana dokumentacja i bardzo dobre podejście do automatyki. Widać doświadczenie i porządek w pracy. Rozdzielnica wygląda jak z katalogu."</p>
+          </div>
+          <div class="testimonial-author">
+            <p class="testimonial-name">Inwestor prywatny</p>
+            <p class="testimonial-role">Apartament, Warszawa Wilanów</p>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div>
+            <div class="testimonial-stars" aria-label="5 gwiazdek">★ ★ ★ ★ ★</div>
+            <p class="testimonial-quote">"Nowoczesne podejście, konkretne doradztwo i bardzo dobry efekt końcowy. Automatyzacja linii produkcyjnej wykonana terminowo i dokładnie według naszych wymagań."</p>
+          </div>
+          <div class="testimonial-author">
+            <p class="testimonial-name">Klient biznesowy</p>
+            <p class="testimonial-role">Hala produkcyjna, Mazowsze</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BLOG ===== -->
+  <section class="blog" id="blog" aria-labelledby="blog-heading">
+    <div class="blog-inner">
+      <div class="blog-header">
+        <div>
+          <p class="section-tag">Blog</p>
+          <h2 id="blog-heading">Wiedza<br>i inspiracje</h2>
+        </div>
+        <a href="index.html#blog" class="btn btn-secondary">Wszystkie artykuły</a>
+      </div>
+      <div class="blog-grid blog-grid-4">
+        <article class="blog-card reveal">
+          <time class="blog-date" datetime="2025-03-10">10 Marca 2025</time>
+          <h3>Jak przygotować dom pod Smart Home? Poradnik od elektryka</h3>
+          <p>Na co zwrócić uwagę już na etapie projektu i prowadzenia instalacji, żeby później nie przepłacać.</p>
+          <a href="smart-home-instalacja.html" class="blog-read">Czytaj artykuł →</a>
+        </article>
+        <article class="blog-card reveal reveal-delay-1">
+          <time class="blog-date" datetime="2025-02-15">15 Lutego 2025</time>
+          <h3>Automatyka przemysłowa — od czego zacząć planowanie układu?</h3>
+          <p>Podstawy planowania układów sterowania, bezpieczeństwa i dokumentacji dla nowoczesnych instalacji.</p>
+          <a href="automatyka-przemyslowa.html" class="blog-read">Czytaj artykuł →</a>
+        </article>
+        <article class="blog-card reveal reveal-delay-2">
+          <time class="blog-date" datetime="2025-01-20">20 Stycznia 2025</time>
+          <h3>Ile kosztuje instalacja Smart Home? Ceny i co wpływa na wycenę</h3>
+          <p>Sprawdź, od czego zależy cena systemu inteligentnego domu i jak podejść do wyceny projektu.</p>
+          <a href="smart-home-koszty.html" class="blog-read">Czytaj artykuł →</a>
+        </article>
+        <article class="blog-card reveal reveal-delay-3">
+          <time class="blog-date" datetime="2025-04-05">5 Kwietnia 2025</time>
+          <h3>KNX vs Loxone vs Home Assistant — którą platformę wybrać?</h3>
+          <p>Szczere porównanie trzech głównych platform Smart Home. Który system pasuje do jakiego budżetu i projektu.</p>
+          <a href="knx-loxone-home-assistant.html" class="blog-read">Czytaj artykuł →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section" aria-labelledby="cta-heading">
+    <div class="cta-inner">
+      <div class="cta-text reveal">
+        <p class="section-tag">Zacznijmy projekt</p>
+        <h2 id="cta-heading">Opowiedz nam<br>o swoim projekcie</h2>
+        <p>Opisz krótko obiekt, zakres i oczekiwania. Skontaktujemy się i przygotujemy wstępną wycenę — bez zobowiązań.</p>
+        <a href="#kontakt" class="btn btn-primary">Poproś o wycenę</a>
+      </div>
+      <div class="reveal reveal-delay-2" style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border);">
+        <div style="background:var(--black); padding:36px;">
+          <p style="font-size:2.5rem; font-family:var(--font-display); font-weight:700; color:var(--white); line-height:1;" data-count="120" data-suffix="+">120+</p>
+          <p style="font-size:0.8rem; color:var(--gray); margin-top:8px; text-transform:uppercase; letter-spacing:0.1em;">Zrealizowanych projektów</p>
+        </div>
+        <div style="background:var(--black); padding:36px;">
+          <p style="font-size:2.5rem; font-family:var(--font-display); font-weight:700; color:var(--white); line-height:1;" data-count="8" data-suffix=" lat">8 lat</p>
+          <p style="font-size:0.8rem; color:var(--gray); margin-top:8px; text-transform:uppercase; letter-spacing:0.1em;">Doświadczenia</p>
+        </div>
+        <div style="background:var(--black); padding:36px; border-top:1px solid var(--border);">
+          <p style="font-size:2.5rem; font-family:var(--font-display); font-weight:700; color:var(--white); line-height:1;" data-count="4" data-suffix="">4</p>
+          <p style="font-size:0.8rem; color:var(--gray); margin-top:8px; text-transform:uppercase; letter-spacing:0.1em;">Obszary usług</p>
+        </div>
+        <div style="background:var(--black); padding:36px; border-top:1px solid var(--border);">
+          <p style="font-size:2.5rem; font-family:var(--font-display); font-weight:700; color:var(--accent); line-height:1;">PL</p>
+          <p style="font-size:0.8rem; color:var(--gray); margin-top:8px; text-transform:uppercase; letter-spacing:0.1em;">Cała Polska</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="kontakt" aria-labelledby="contact-heading">
+    <div class="contact-inner">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <p class="section-tag">Kontakt</p>
+          <h2 id="contact-heading">Poproś<br>o wycenę</h2>
+          <p>Masz pytanie, chcesz omówić realizację lub potrzebujesz wyceny? Skontaktuj się bezpośrednio lub wypełnij formularz — odpiszemy najszybciej jak to możliwe.</p>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon icon-svg" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.56 3.44 2 2 0 0 1 3.53 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.75a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg></div>
+            <div class="contact-detail-text">
+              <span>Telefon</span>
+              <a href="tel:+48511357787">+48 511 357 787</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon icon-svg" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="contact-detail-text">
+              <span>E-mail</span>
+              <a href="mailto:kontakt@zonikautomation.pl">kontakt@zonikautomation.pl</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon icon-svg" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="contact-detail-text">
+              <span>Obszar działania</span>
+              <p>Warszawa i cała Polska</p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon icon-svg" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div class="contact-detail-text">
+              <span>Godziny pracy</span>
+              <p>Pon–Pt: 8:00–18:00</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap reveal reveal-delay-2">
+          <form class="contact-form" id="contact-form" action="https://formspree.io/f/mzdylbea" method="POST" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Imię i nazwisko</label>
+                <input type="text" id="name" name="name" placeholder="Jan Kowalski" autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="phone">Telefon</label>
+                <input type="tel" id="phone" name="phone" placeholder="+48 500 000 000" autocomplete="tel" inputmode="tel">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail <span style="color:var(--accent)">*</span></label>
+              <input type="email" id="email" name="email" placeholder="jan@przykład.pl" required autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label for="service">Rodzaj usługi</label>
+              <select id="service" name="service">
+                <option value="" disabled selected>Wybierz usługę…</option>
+                <option value="smart-home">Smart Home</option>
+                <option value="automatyka">Automatyka przemysłowa</option>
+                <option value="instalacje">Instalacje elektryczne</option>
+                <option value="schematy">Schematy elektryczne</option>
+                <option value="ladowarki">Ładowarki EV</option>
+                <option value="inne">Inne</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Opis projektu <span style="color:var(--accent)">*</span></label>
+              <textarea id="message" name="message" placeholder="Opisz zakres prac, rodzaj obiektu, termin i dodatkowe wymagania…" required></textarea>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn btn-primary">Wyślij zapytanie</button>
+              <p style="font-size:0.75rem; color:var(--gray); max-width:240px;">Odpiszemy w ciągu 24 godzin w dni robocze.</p>
+            </div>
+            <p class="form-message" id="form-message" role="alert"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="header-logo" style="margin-bottom:0;" aria-label="Zonik Automation">
+          <div class="logo-mark">ZA</div>
+          <div class="logo-text">
+            <strong>Zonik Automation</strong>
+            <span>Smart Home &amp; Automatyka</span>
+          </div>
+        </a>
+        <p>Smart Home, automatyka przemysłowa, instalacje elektryczne, projekty i schematy. Warszawa i cała Polska.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Usługi</h5>
+        <a href="smart-home.html">Smart Home</a>
+        <a href="automatyka-przemyslowa.html">Automatyka przemysłowa</a>
+        <a href="instalacje-elektryczne.html">Instalacje elektryczne</a>
+        <a href="schematy-elektryczne.html">Schematy elektryczne</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Firma</h5>
+        <a href="#o-firmie">O firmie</a>
+        <a href="#realizacje">Realizacje</a>
+        <a href="index.html#blog">Blog</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Kontakt</h5>
+        <a href="tel:+48511357787">+48 511 357 787</a>
+        <a href="mailto:kontakt@zonikautomation.pl">kontakt@zonikautomation.pl</a>
+        <a href="#kontakt">Warszawa i cała Polska</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Zonik Automation. Wszelkie prawa zastrzeżone.</p>
+      <div class="footer-legal">
+        <a href="polityka-prywatnosci.html">Polityka prywatności</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scrollTopBtn" aria-label="Wróć na górę">↑</button>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#111;border-top:1px solid #2a2a2a;padding:20px clamp(20px,4vw,60px);display:flex;flex-wrap:wrap;align-items:center;gap:16px;">
+    <p style="flex:1;min-width:220px;font-size:0.82rem;color:#aaa;margin:0;">Ta strona używa Google Analytics do analizy ruchu. Dane są anonimowe. <a href="polityka-prywatnosci.html" style="color:#e63312;text-decoration:underline;">Polityka prywatności</a></p>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button id="cookie-reject" style="padding:8px 18px;background:transparent;border:1px solid #444;color:#aaa;font-size:0.8rem;cursor:pointer;font-family:inherit;">Odrzuć</button>
+      <button id="cookie-accept" style="padding:8px 18px;background:#e63312;border:none;color:#fff;font-size:0.8rem;cursor:pointer;font-family:inherit;">Akceptuj</button>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      var banner = document.getElementById('cookie-banner');
+      var c = localStorage.getItem('za_cookie_consent');
+      if(!c) banner.style.display = 'flex';
+      document.getElementById('cookie-accept').addEventListener('click', function(){
+        localStorage.setItem('za_cookie_consent','accepted');
+        banner.style.display = 'none';
+        gtag('consent','update',{'analytics_storage':'granted'});
+        loadGA();
+      });
+      document.getElementById('cookie-reject').addEventListener('click', function(){
+        localStorage.setItem('za_cookie_consent','rejected');
+        banner.style.display = 'none';
+      });
+    })();
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
