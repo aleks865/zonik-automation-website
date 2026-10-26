@@ -598,3 +598,5 @@ strong { color: var(--text); font-weight: 500; }
   .contact__mail:hover { transform: translateX(8px); }
   .srow:hover .srow__d span { transform: translateX(6px); }
 }
+
+.sfloat { display: none !important; }

@@ -104,27 +104,6 @@
     if (reduce) { words.forEach ? words.forEach(function (w) { w.classList.add('on'); }) : null; }
     window.addEventListener('scroll', req, { passive: true }); window.addEventListener('resize', req); frame();
 
-    /* Services: floating image follows cursor */
-    var sf = document.querySelector('.sfloat');
-    if (sf && window.matchMedia('(hover: hover)').matches) {
-      var imgs = sf.querySelectorAll('img');
-      var mx = 0, my = 0, cx = 0, cy = 0, raf = null;
-      function loop() {
-        cx += (mx - cx) * 0.16; cy += (my - cy) * 0.16;
-        sf.style.left = cx + 'px'; sf.style.top = cy + 'px';
-        raf = Math.abs(mx - cx) + Math.abs(my - cy) > 0.5 ? requestAnimationFrame(loop) : null;
-      }
-      document.querySelectorAll('.srow').forEach(function (row, i) {
-        row.addEventListener('mouseenter', function (e) {
-          if (!sf.classList.contains('on')) { cx = mx = e.clientX; cy = my = e.clientY; }
-          sf.classList.add('on');
-          imgs.forEach(function (im, j) { im.classList.toggle('on', j === i); });
-        });
-        row.addEventListener('mouseleave', function () { sf.classList.remove('on'); });
-        row.addEventListener('mousemove', function (e) { mx = e.clientX; my = e.clientY; if (!raf) raf = requestAnimationFrame(loop); });
-      });
-    }
-
     /* Lightbox */
     var lb = document.getElementById('lb');
     var lbImg = lb && lb.querySelector('img'), lbCap = lb && lb.querySelector('.lb__cap');
