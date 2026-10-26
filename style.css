@@ -568,3 +568,33 @@ strong { color: var(--text); font-weight: 500; }
   .bt { min-height: 220px; gap: 28px; }
   .bt--1, .bt--2, .bt--3, .bt--4, .bt--5 { grid-column: auto; }
 }
+
+/* ---------- hover micro-interactions (v4) ---------- */
+.logo__mark, .stat__v, .dv h3, .dv__n::after, .pstep__n, .pstep h3, .faq summary > span:not(.q-n), .cinfo > a span,
+.tech span, .box, .work, .related svg, .checks svg, .witem h3, .ind__n, .bt h3, .footer li a, .contact__mail, .srow__d span {
+  transition: transform .55s var(--ease), color .35s, background .35s, box-shadow .55s var(--ease), border-color .35s, -webkit-text-stroke-color .35s, opacity .35s;
+}
+@media (hover: hover) {
+  .logo:hover .logo__mark { transform: rotate(-8deg) scale(1.06); }
+  .stat:hover .stat__v { color: var(--accent); transform: translateX(6px); }
+  .dv { transition: background .4s; }
+  .dv:hover { background: var(--paper); }
+  .dv:hover h3 { transform: translateX(8px); }
+  .dv:hover .dv__n::after { transform: rotate(90deg) scale(1.3); display: inline-block; }
+  .dv__n::after { display: inline-block; }
+  .pstep:hover .pstep__n { color: var(--accent); -webkit-text-stroke-color: var(--accent); transform: translateX(4px); }
+  .pstep:hover h3 { transform: translateX(8px); }
+  .faq summary:hover > span:not(.q-n) { transform: translateX(10px); }
+  .faq summary:hover::after { opacity: 1; }
+  .cinfo > a:hover span { transform: translateX(6px); }
+  .tech span:hover { transform: translateY(-3px); }
+  .box:hover { transform: translateY(-4px); box-shadow: 0 22px 44px -28px rgba(0,0,0,.3); }
+  .work:hover { transform: translateY(-4px); box-shadow: 0 22px 44px -28px rgba(0,0,0,.3); }
+  .related a:hover svg { transform: translateX(6px) rotate(-45deg); }
+  .checks li:hover svg { transform: scale(1.18); }
+  .witem:hover h3 { transform: translateX(8px); }
+  .bt:hover h3 { transform: translateX(6px); }
+  .footer li a:hover { color: var(--accent); }
+  .contact__mail:hover { transform: translateX(8px); }
+  .srow:hover .srow__d span { transform: translateX(6px); }
+}
