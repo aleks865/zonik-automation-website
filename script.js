@@ -1,6 +1,7 @@
-/* ZONIK AUTOMATION — script.js */
+/* ZONIK AUTOMATION — script.js (v3) */
 (function () {
   document.documentElement.classList.remove('no-js');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---- Google Analytics (Consent Mode v2, ładowane po zgodzie) ---- */
   var GA_ID = 'G-9X9LQVGN8P';
@@ -23,6 +24,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     var body = document.body;
+    requestAnimationFrame(function () { setTimeout(function () { body.classList.add('is-loaded'); }, 60); });
 
     /* Cookie banner */
     var cookie = document.getElementById('cookie');
@@ -31,12 +33,17 @@
     acc && acc.addEventListener('click', function () { setConsent('accepted'); cookie.classList.remove('show'); loadGA(); onScroll(); });
     rej && rej.addEventListener('click', function () { setConsent('rejected'); cookie.classList.remove('show'); onScroll(); });
 
-    /* Header + mobile bar on scroll */
+    /* Header (solid / hide on scroll down) + mobile bar */
     var header = document.querySelector('.header');
     var mbar = document.querySelector('.mbar');
+    var lastY = window.scrollY;
     function onScroll() {
       var y = window.scrollY;
-      header && header.classList.toggle('is-solid', y > 40);
+      if (header) {
+        header.classList.toggle('is-solid', y > 40);
+        if (!body.classList.contains('menu-open')) header.classList.toggle('is-hidden', y > lastY && y > 400);
+      }
+      lastY = y;
       mbar && mbar.classList.toggle('show', y > 500 && !(cookie && cookie.classList.contains('show')));
     }
     window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
@@ -47,20 +54,76 @@
       body.classList.toggle('menu-open', open);
       burger && burger.setAttribute('aria-expanded', open ? 'true' : 'false');
       body.style.overflow = open ? 'hidden' : '';
-      header && header.classList.toggle('is-solid', open || window.scrollY > 40);
+      if (header) { header.classList.remove('is-hidden'); header.classList.toggle('is-solid', !open && window.scrollY > 40); }
     }
     burger && burger.addEventListener('click', function () { setMenu(!body.classList.contains('menu-open')); });
     document.querySelectorAll('.mnav a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { setMenu(false); closeLb(); } });
 
     /* Reveal on scroll */
-    var rv = document.querySelectorAll('.rv');
-    if ('IntersectionObserver' in window) {
+    var rv = document.querySelectorAll('.rv, .rv-ln, .band');
+    if ('IntersectionObserver' in window && !reduce) {
       var io = new IntersectionObserver(function (en) {
         en.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
       rv.forEach(function (el) { io.observe(el); });
     } else { rv.forEach(function (el) { el.classList.add('in'); }); }
+
+    /* Statement: words light up while scrolling */
+    var st = document.querySelector('.statement');
+    var words = [];
+    if (st) {
+      var txt = st.textContent.trim().split(/\s+/);
+      st.innerHTML = txt.map(function (w) { return '<span class="w">' + w + '</span>'; }).join(' ');
+      words = st.querySelectorAll('.w');
+    }
+
+    /* Parallax band */
+    var band = document.querySelector('.band__frame img');
+
+    var ticking = false;
+    function frame() {
+      ticking = false;
+      var vh = window.innerHeight;
+      if (words.length) {
+        var r = st.getBoundingClientRect();
+        var p = (vh * 0.85 - r.top) / (r.height + vh * 0.35);
+        p = Math.max(0, Math.min(1, p));
+        var n = Math.round(p * words.length);
+        for (var i = 0; i < words.length; i++) words[i].classList.toggle('on', i < n);
+      }
+      if (band && !reduce) {
+        var b = band.parentNode.getBoundingClientRect();
+        if (b.bottom > 0 && b.top < vh) {
+          var q = (b.top + b.height / 2 - vh / 2) / vh;
+          band.style.transform = 'translate3d(0,' + (q * -9) + '%,0)';
+        }
+      }
+    }
+    function req() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+    if (reduce) { words.forEach ? words.forEach(function (w) { w.classList.add('on'); }) : null; }
+    window.addEventListener('scroll', req, { passive: true }); window.addEventListener('resize', req); frame();
+
+    /* Services: floating image follows cursor */
+    var sf = document.querySelector('.sfloat');
+    if (sf && window.matchMedia('(hover: hover)').matches) {
+      var imgs = sf.querySelectorAll('img');
+      var mx = 0, my = 0, cx = 0, cy = 0, raf = null;
+      function loop() {
+        cx += (mx - cx) * 0.16; cy += (my - cy) * 0.16;
+        sf.style.left = cx + 'px'; sf.style.top = cy + 'px';
+        raf = Math.abs(mx - cx) + Math.abs(my - cy) > 0.5 ? requestAnimationFrame(loop) : null;
+      }
+      document.querySelectorAll('.srow').forEach(function (row, i) {
+        row.addEventListener('mouseenter', function (e) {
+          if (!sf.classList.contains('on')) { cx = mx = e.clientX; cy = my = e.clientY; }
+          sf.classList.add('on');
+          imgs.forEach(function (im, j) { im.classList.toggle('on', j === i); });
+        });
+        row.addEventListener('mouseleave', function () { sf.classList.remove('on'); });
+        row.addEventListener('mousemove', function (e) { mx = e.clientX; my = e.clientY; if (!raf) raf = requestAnimationFrame(loop); });
+      });
+    }
 
     /* Lightbox */
     var lb = document.getElementById('lb');
@@ -75,8 +138,7 @@
       lbCap.textContent = el.getAttribute('data-cap') || '';
     }
     function openLb(i) { if (!lb) return; show(i); lb.classList.add('open'); body.style.overflow = 'hidden'; track('view_project', { project: items[i].getAttribute('data-cap') }); }
-    window.closeLb = function () { if (lb && lb.classList.contains('open')) { lb.classList.remove('open'); body.style.overflow = ''; } };
-    var closeLb = window.closeLb;
+    function closeLb() { if (lb && lb.classList.contains('open')) { lb.classList.remove('open'); body.style.overflow = ''; } }
     items.forEach(function (el, i) {
       el.addEventListener('click', function () { openLb(i); });
       el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(i); } });
@@ -93,19 +155,20 @@
       });
     }
 
-    /* Conversion tracking: phone / e-mail clicks */
+    /* Conversion tracking */
     document.querySelectorAll('a[href^="tel:"]').forEach(function (a) { a.addEventListener('click', function () { track('click_phone', { location: a.getAttribute('data-loc') || '' }); }); });
     document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) { a.addEventListener('click', function () { track('click_email'); }); });
 
-    /* Contact form (Formspree, bez przeładowania strony) */
+    /* Contact form (Formspree) */
     var form = document.getElementById('contact-form');
     if (form) {
       var status = form.querySelector('.form__status');
       var btn = form.querySelector('button[type=submit]');
+      var lbl = btn.querySelector('.btn__t');
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         if (!form.checkValidity()) { form.reportValidity(); return; }
-        btn.disabled = true; var t = btn.textContent; btn.textContent = 'Wysyłanie…';
+        btn.disabled = true; var t = lbl.textContent; lbl.textContent = 'Wysyłanie…';
         status.className = 'form__status';
         fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
           .then(function (r) {
@@ -119,11 +182,10 @@
             status.className = 'form__status err';
             status.textContent = 'Nie udało się wysłać wiadomości. Zadzwoń: +48 511 357 787 lub napisz: kontakt@zonikautomation.pl';
           })
-          .finally(function () { btn.disabled = false; btn.textContent = t; });
+          .finally(function () { btn.disabled = false; lbl.textContent = t; });
       });
     }
 
-    /* Rok w stopce */
     var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
   });
 })();
